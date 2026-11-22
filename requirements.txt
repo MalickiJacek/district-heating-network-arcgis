@@ -1,0 +1,7 @@
+networkx>=3.0
+shapely>=2.0
+geopandas>=0.14
+pandas>=1.5
+pyogrio>=0.7
+matplotlib>=3.7
+pytest>=7

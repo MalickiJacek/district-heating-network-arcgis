@@ -1,0 +1,55 @@
+flowchart LR
+  n3(["Network Analyst Layer"]):::var
+  n4(["Solve Succeeded"]):::var
+  n6(["Facilities"]):::var
+  n8(["Routes"]):::var
+  n12(["SOLUTION (2)"]):::var
+  n15(["Facilities_ExportFeatures"]):::var
+  n17(["Facilities_ExportFeatures1"]):::var
+  n20(["Closest Facility"]):::var
+  n22(["Closest Facility (4)"]):::var
+  n24(["Continue"]):::var
+  n26(["Row Count"]):::var
+  n28(["Routes_ExportFeatures1"]):::var
+  n32(["Closest Facility (3)"]):::var
+  n33(["Closest Facility (5)"]):::var
+  n34(["SOLUTION (4)"]):::var
+  n2["Solve"]:::proc
+  n5["Select Data"]:::proc
+  n7["Select Data (2)"]:::proc
+  n11["Append"]:::proc
+  n14["Export Features"]:::proc
+  n16["Export Features (2)"]:::proc
+  n19["Add Locations"]:::proc
+  n21["Add Locations (2)"]:::proc
+  n23["While"]:::proc
+  n25["Get Count"]:::proc
+  n27["Export Features (3)"]:::proc
+  n32 --> n2
+  n2 --> n3
+  n2 --> n4
+  n3 --> n5
+  n5 --> n6
+  n3 --> n7
+  n7 --> n8
+  n28 --> n11
+  n34 --> n11
+  n11 --> n12
+  n6 --> n14
+  n14 --> n15
+  n6 --> n16
+  n16 --> n17
+  n33 --> n19
+  n15 --> n19
+  n19 --> n20
+  n20 --> n21
+  n17 --> n21
+  n21 --> n22
+  n26 --> n23
+  n23 --> n24
+  n17 --> n25
+  n25 --> n26
+  n8 --> n27
+  n27 --> n28
+  classDef proc fill:#f3e08a,stroke:#b59b00,color:#222
+  classDef var fill:#9bd18b,stroke:#4c8c3c,color:#111

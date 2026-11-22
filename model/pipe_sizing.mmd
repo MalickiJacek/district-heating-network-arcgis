@@ -1,0 +1,110 @@
+flowchart TB
+  subgraph A["1 · Network dataset, Closest Facility layer, buildings snapped to the network"]
+    direction LR
+    n10(["WYMIAROWANIE (2)"]):::var
+    n4["Create Network Dataset"]:::proc
+    n5(["Output Network Dataset"]):::var
+    n6["Build Network"]:::proc
+    n7(["Updated Input Network Dataset"]):::var
+    n11["Make Closest Facility Analysis Layer"]:::proc
+    n13(["Closest Facility 3"]):::var
+    n54(["SOLUTION"]):::var
+    n2["Dissolve"]:::proc
+    n3(["SOLUTION_Dissolve"]):::var
+    n48(["Energia (3)"]):::var
+    n18["Snap"]:::proc
+    n19(["Energia (2)"]):::var
+    n14["Add Locations"]:::proc
+    n15(["WYM_ClosestFacility"]):::var
+    n54 --> n2
+    n2 --> n3
+    n10 --> n4
+    n4 --> n5
+    n5 --> n6
+    n6 --> n7
+    n7 --> n11
+    n11 --> n13
+    n13 --> n14
+    n19 --> n14
+    n14 --> n15
+    n48 --> n18
+    n3 --> n18
+    n18 --> n19
+  end
+  subgraph B["2 · Route every building to the heat plant and export routes"]
+    direction LR
+    n50(["Elektrocieplownia (3)"]):::var
+    n20["Add Locations (2)"]:::proc
+    n21(["Closest Facility 3 (4)"]):::var
+    n22["Solve"]:::proc
+    n23(["Network Analyst Layer"]):::var
+    n24(["Solve Succeeded"]):::var
+    n29["Select Data"]:::proc
+    n30(["Routes"]):::var
+    n51["Export Features"]:::proc
+    n52(["WYM_SIEC_POJ"]):::var
+    n31["Calculate Field"]:::proc
+    n32(["WYM_SIEC_POJ (2)"]):::var
+    n33["Add Field"]:::proc
+    n34(["Routes (3)"]):::var
+    n35["Calculate Field (2)"]:::proc
+    n36(["Routes (4)"]):::var
+    n50 --> n20
+    n20 --> n21
+    n21 --> n22
+    n22 --> n23
+    n22 --> n24
+    n23 --> n29
+    n29 --> n30
+    n52 --> n31
+    n31 --> n32
+    n32 --> n33
+    n33 --> n34
+    n34 --> n35
+    n35 --> n36
+    n30 --> n51
+    n51 --> n52
+  end
+  subgraph C["3 · Sum building loads on every network segment"]
+    direction LR
+    n37["Join Field"]:::proc
+    n53(["Energia"]):::var
+    n38(["Routes (5)"]):::var
+    n42["Split Line At Vertices"]:::proc
+    n43(["WYM_SIEC_POJ_SplitLineAtVertices"]):::var
+    n44["Calculate Geometry Attributes"]:::proc
+    n45(["Routes_SplitLine"]):::var
+    n46["Dissolve (2)"]:::proc
+    n47(["ZWYMIAROWANE"]):::var
+    n53 --> n37
+    n37 --> n38
+    n38 --> n42
+    n42 --> n43
+    n43 --> n44
+    n44 --> n45
+    n45 --> n46
+    n46 --> n47
+  end
+  subgraph D["4 · DN class from the summed load (ΔT 20 / 30 / 40 / 60 K)"]
+    direction LR
+    n55["Calculate Field (3)"]:::proc
+    n56(["Updated Input Table"]):::var
+    n57["Calculate Field (4)"]:::proc
+    n58(["Updated Input Table (2)"]):::var
+    n59["Calculate Field (5)"]:::proc
+    n60(["Updated Input Table (3)"]):::var
+    n61["Calculate Field (6)"]:::proc
+    n62(["Updated Input Table (4)"]):::var
+    n55 --> n56
+    n56 --> n57
+    n57 --> n58
+    n58 --> n59
+    n59 --> n60
+    n60 --> n61
+    n61 --> n62
+  end
+  A --> B
+  B --> C
+  C -.-> D
+  classDef proc fill:#f3e08a,stroke:#b59b00,color:#222
+  classDef var fill:#9bd18b,stroke:#4c8c3c,color:#111

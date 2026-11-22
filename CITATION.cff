@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper below that describes the method."
+title: "district-heating-network-arcgis"
+authors:
+  - family-names: Malicki
+    given-names: Jacek
+license: MIT
+repository-code: "https://github.com/MalickiJacek/district-heating-network-arcgis"
+preferred-citation:
+  type: article
+  title: "Least-Cost-Path and Closest Facility Analysis for Generating District Heating Networks on a Communal Level"
+  authors:
+    - family-names: Strzalka
+      given-names: Aneta
+    - family-names: Malicki
+      given-names: Jacek
+    - family-names: Blachowski
+      given-names: Jan
+  journal: "Applied Sciences"
+  volume: 14
+  issue: 2
+  start: 763
+  year: 2024
+  doi: "10.3390/app14020763"
